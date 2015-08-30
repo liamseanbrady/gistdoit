@@ -1,1 +1,5 @@
 config.yml
+TODO_before_committing
+*.gem
+sketch.md
+playground/*

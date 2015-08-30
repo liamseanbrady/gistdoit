@@ -1,0 +1,80 @@
+{
+  "url": "https://api.github.com/gists/e0e1a3cddec61ee89289",
+  "forks_url": "https://api.github.com/gists/e0e1a3cddec61ee89289/forks",
+  "commits_url": "https://api.github.com/gists/e0e1a3cddec61ee89289/commits",
+  "id": "e0e1a3cddec61ee89289",
+  "git_pull_url": "https://gist.github.com/e0e1a3cddec61ee89289.git",
+  "git_push_url": "https://gist.github.com/e0e1a3cddec61ee89289.git",
+  "html_url": "https://gist.github.com/e0e1a3cddec61ee89289",
+  "files": {
+    "file1.txt": {
+      "filename": "file1.txt",
+      "type": "text/plain",
+      "language": "Text",
+      "raw_url": "https://gist.githubusercontent.com/liamseanbrady/e0e1a3cddec61ee89289/raw/043a3b46337b46164a5626816c2984b48be968ea/file1.txt",
+      "size": 4,
+      "truncated": false,
+      "content": "Demo"
+    }
+  },
+  "public": false,
+  "created_at": "2015-08-24T12:12:50Z",
+  "updated_at": "2015-08-24T12:12:50Z",
+  "description": "Created via API",
+  "comments": 0,
+  "user": null,
+  "comments_url": "https://api.github.com/gists/e0e1a3cddec61ee89289/comments",
+  "owner": {
+    "login": "liamseanbrady",
+    "id": 8338057,
+    "avatar_url": "https://avatars.githubusercontent.com/u/8338057?v=3",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/liamseanbrady",
+    "html_url": "https://github.com/liamseanbrady",
+    "followers_url": "https://api.github.com/users/liamseanbrady/followers",
+    "following_url": "https://api.github.com/users/liamseanbrady/following{/other_user}",
+    "gists_url": "https://api.github.com/users/liamseanbrady/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/liamseanbrady/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/liamseanbrady/subscriptions",
+    "organizations_url": "https://api.github.com/users/liamseanbrady/orgs",
+    "repos_url": "https://api.github.com/users/liamseanbrady/repos",
+    "events_url": "https://api.github.com/users/liamseanbrady/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/liamseanbrady/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "forks": [
+
+  ],
+  "history": [
+    {
+      "user": {
+        "login": "liamseanbrady",
+        "id": 8338057,
+        "avatar_url": "https://avatars.githubusercontent.com/u/8338057?v=3",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/liamseanbrady",
+        "html_url": "https://github.com/liamseanbrady",
+        "followers_url": "https://api.github.com/users/liamseanbrady/followers",
+        "following_url": "https://api.github.com/users/liamseanbrady/following{/other_user}",
+        "gists_url": "https://api.github.com/users/liamseanbrady/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/liamseanbrady/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/liamseanbrady/subscriptions",
+        "organizations_url": "https://api.github.com/users/liamseanbrady/orgs",
+        "repos_url": "https://api.github.com/users/liamseanbrady/repos",
+        "events_url": "https://api.github.com/users/liamseanbrady/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/liamseanbrady/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "version": "3439bbd04f75067672425b9f51a11170c072aaf6",
+      "committed_at": "2015-08-24T12:12:50Z",
+      "change_status": {
+        "total": 1,
+        "additions": 1,
+        "deletions": 0
+      },
+      "url": "https://api.github.com/gists/e0e1a3cddec61ee89289/3439bbd04f75067672425b9f51a11170c072aaf6"
+    }
+  ]
+}

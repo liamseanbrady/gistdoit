@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require_relative '../github'
+require_relative '../gist'
+require_relative '../gist_file'
+
+config_path = File.expand_path('~') + '/.gistdoit'
+if !File.exist?(config_path)
+  puts "Please enter your token:"
+  token = $stdin.gets.chomp
+  result = File.open(config_path, 'w') do |file|
+    config_data = { 'token' => token }
+    file << YAML.dump(config_data)
+  end
+end
+
+path = Dir.pwd
+file_name = ARGV.first
+file_base_name = File.basename(ARGV.first)
+puts "Please describe a description for your file"
+desc = $stdin.gets.chomp
+
+file_contents = File.read("#{path}/#{file_name}")
+file = GistFile.new(file_base_name, file_contents)
+gist_thing = Gist.new(file)
+gist_thing.summary = desc
+client = Github::Client.new
+response = client.create_gist(gist_thing)
