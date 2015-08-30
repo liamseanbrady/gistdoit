@@ -26,12 +26,5 @@ module Github
     def token
       @config.token
     end
-
-    private
-
-    def parse_config_file
-      file = File.read('config.yml')
-      YAML.load(file)
-    end
   end
 end
