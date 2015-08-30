@@ -13,8 +13,6 @@ module Github
 
     def create_gist(gist)
       @data = { "description" => "#{gist.summary}", "public" => false, "files" => { "#{gist.name}" => { "content" => "#{gist.content}" } } }.to_json
-
-
       uri = URI("https://api.github.com/gists")
       @response = @network.connect_with_token(token, uri, @data)
     end
