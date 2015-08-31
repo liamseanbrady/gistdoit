@@ -1,8 +1,8 @@
 require 'net/http'
 require 'json'
 require 'yaml'
-require_relative './user_config'
 require_relative './network'
+require_relative './user_config'
 
 module Github
   class Client
