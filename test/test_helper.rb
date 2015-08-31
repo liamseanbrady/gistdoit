@@ -1,1 +1,3 @@
-$LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
+$:.unshift(File.dirname(__FILE__) + '/../lib')
+require 'minitest/autorun'
+
