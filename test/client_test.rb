@@ -48,7 +48,7 @@ module Github
         end
       end
 
-      client = Github::Client.new(user_config, network)
+      client = Client.new(user_config, network)
       client.create_gist(@gist_data)
 
       assert_equal(response, client.response)
