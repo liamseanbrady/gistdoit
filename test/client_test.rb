@@ -1,5 +1,6 @@
 require_relative './test_helper'
 require 'gistdoit/github/client'
+require 'gistdoit/github/network'
 
 module Github
   class ClientTest < Minitest::Test
@@ -37,14 +38,17 @@ module Github
         end
       }.new
 
-      network_double = Struct.new(:network_double) {
-        def connect_with_token(token, uri, data)
+      test_scope = self
+
+      network = Class.new(Network) do
+        define_singleton_method(:connect_with_token) do |token, uri, data|
+          test_scope.assert_equal('ab12345', token)
           fixture_path = File.expand_path('../fixtures/create_gist_response', __FILE__)
           File.read(fixture_path)
         end
-      }.new
+      end
 
-      client = Github::Client.new(user_config, network_double)
+      client = Github::Client.new(user_config, network)
       client.create_gist(@gist_data)
 
       assert_equal(response, client.response)
