@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require_relative './test_helper'
 require 'gistdoit/gist'
 
-class GistTest < Minitest::Test
+class GistTests < Minitest::Test
   def test_gist_reads_username_from_config_file
     gist_file_stub = Struct.new(:name, :content) {
       def name
@@ -72,7 +72,7 @@ class GistTest < Minitest::Test
     assert_equal('my_gist.rb', gist.name)
   end
 
-  def test_gist_has_a_name
+  def test_gist_has_content
     gist_file_stub = Struct.new(:name, :content) {
       def name
         'my_gist.rb'
