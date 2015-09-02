@@ -2,9 +2,8 @@ require 'yaml'
 require 'gistdoit/github/user_config'
 
 class Gist
-  def initialize(gist_file, user_config = Github::UserConfig.new)
+  def initialize(user_config = Github::UserConfig.new)
     @config = user_config
-    @gist_file = gist_file
   end
 
   def github_username
@@ -16,11 +15,7 @@ class Gist
   end
 
   def content
-    @content || @gist_file.content
-  end
-
-  def gist_file
-    @gist_file
+    @content
   end
 
   def summary
@@ -32,10 +27,14 @@ class Gist
   end
 
   def name
-    @name ||= @gist_file.name
+    @name
   end
 
   def name=(text)
     @name = text
+  end
+  
+  def to_json
+    { "description" => "#{summary}", "public" => false, "files" => { "#{name}" => { "content" => "#{content}" } } }.to_json
   end
 end
