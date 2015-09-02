@@ -20,8 +20,9 @@ puts "Please describe a description for your file"
 desc = $stdin.gets.chomp
 
 file_contents = File.read("#{path}/#{file_name}")
-file = GistFile.new(file_base_name, file_contents)
-gist_thing = Gist.new(file)
+gist_thing = Gist.new
+gist_thing.name = file_base_name
+gist_thing.content = file_contents
 gist_thing.summary = desc
 client = Github::Client.new
 response = client.create_gist(gist_thing)
