@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
 
-require_relative '../github'
-require_relative '../gist'
-require_relative '../gist_file'
+$LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
+require 'gistdoit'
 
 config_path = File.expand_path('~') + '/.gistdoit'
 if !File.exist?(config_path)
