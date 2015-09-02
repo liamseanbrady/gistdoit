@@ -33,4 +33,8 @@ class Gist
   def name=(text)
     @name = text
   end
+  
+  def to_json
+    { "description" => "#{summary}", "public" => false, "files" => { "#{name}" => { "content" => "#{content}" } } }.to_json
+  end
 end
