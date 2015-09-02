@@ -1,12 +1,11 @@
-require 'net/http'
 require 'json'
 require 'yaml'
-require_relative './network'
+require_relative '../net_http_adapter'
 require_relative './user_config'
 
 module Github
   class Client
-    def initialize(config = UserConfig.new, network = Network.new)
+    def initialize(config = UserConfig.new, network = GistDoIt::NetHTTPAdapter.new)
       @config = config
       @network = network
     end
@@ -14,7 +13,7 @@ module Github
     def create_gist(gist)
       @data = { "description" => "#{gist.summary}", "public" => false, "files" => { "#{gist.name}" => { "content" => "#{gist.content}" } } }.to_json
       uri = URI("https://api.github.com/gists")
-      @response = @network.connect_with_token(token, uri, @data)
+      @response = @network.post_with_token(token, uri, @data)
     end
 
     def response
