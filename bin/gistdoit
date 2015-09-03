@@ -3,26 +3,5 @@
 $LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
 require 'gistdoit'
 
-config_path = File.expand_path('~') + '/.gistdoit'
-if !File.exist?(config_path)
-  puts "Please enter your token:"
-  token = $stdin.gets.chomp
-  result = File.open(config_path, 'w') do |file|
-    config_data = { 'token' => token }
-    file << YAML.dump(config_data)
-  end
-end
+GistDoIt::CLI.start(*ARGV)
 
-path = Dir.pwd
-file_name = ARGV.first
-file_base_name = File.basename(ARGV.first)
-puts "Please describe your file..."
-description = $stdin.gets.chomp
-
-file_contents = File.read("#{path}/#{file_name}")
-gist_thing = Gist.new
-gist_thing.name = file_base_name
-gist_thing.content = file_contents
-gist_thing.summary = description
-client = Github::Client.new
-response = client.create_gist(gist_thing)
