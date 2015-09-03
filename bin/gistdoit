@@ -16,13 +16,13 @@ end
 path = Dir.pwd
 file_name = ARGV.first
 file_base_name = File.basename(ARGV.first)
-puts "Please describe a description for your file"
-desc = $stdin.gets.chomp
+puts "Please describe your file..."
+description = $stdin.gets.chomp
 
 file_contents = File.read("#{path}/#{file_name}")
 gist_thing = Gist.new
 gist_thing.name = file_base_name
 gist_thing.content = file_contents
-gist_thing.summary = desc
+gist_thing.summary = description
 client = Github::Client.new
 response = client.create_gist(gist_thing)
