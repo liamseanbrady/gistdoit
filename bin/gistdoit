@@ -34,22 +34,22 @@ module GistDoIt
     end
     
     def get_file_description
-      clear_terminal do
+      in_blank_terminal do
         puts "Please describe your file..."
         description = $stdin.gets.chomp
       end
     end
 
-    def clear_terminal
-      %x[clear]
+    def in_blank_terminal
+      system 'clear'
       yield
     end
 
     def get_token
-      clear_terminal do
+      in_blank_terminal do
         config_path = File.expand_path('~') + '/.gistdoit'
         if !File.exist?(config_path)
-          clear_terminal do
+          in_blank_terminal do
             puts "Please enter your token:"
             token = $stdin.gets.chomp
           end
