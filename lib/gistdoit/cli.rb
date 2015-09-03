@@ -1,22 +1,20 @@
 module GistDoIt
   class CLI
     def self.start(*args)
-      cli = new
-      cli.get_token
-      description = cli.get_file_description
-      relative_file_path = args.first
-      file_contents = cli.get_file_contents(relative_file_path)
-      base_file_name = File.basename(args.first)
-      cli.create_gist(base_file_name, file_contents, description)
+      new.start(args.first)
+    end
+
+    def start(relative_file_path)
+      base_file_name = File.basename(relative_file_path)
+      file_contents = get_file_contents(relative_file_path)
+      description = get_file_description
+      create_gist(base_file_name, file_contents, description)
     end
 
     def create_gist(base_file_name, file_contents, description)
-      gist_thing = Gist.new
-      gist_thing.name = base_file_name
-      gist_thing.content = file_contents
-      gist_thing.summary = description
+      gist = Gist.new(name: base_file_name, content: file_contents, summary: description)
       client = Github::Client.new
-      client.create_gist(gist_thing)
+      client.create_gist(gist)
     end
 
     def get_file_contents(relative_file_path)

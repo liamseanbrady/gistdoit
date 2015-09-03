@@ -2,7 +2,10 @@ require 'yaml'
 require 'gistdoit/github/user_config'
 
 class Gist
-  def initialize(user_config = Github::UserConfig.new)
+  def initialize(name:, content:, summary:, user_config: Github::UserConfig.new)
+    @name = name
+    @content = content
+    @summary = summary
     @config = user_config
   end
 
