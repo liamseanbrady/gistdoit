@@ -10,7 +10,7 @@ class GistTests < Minitest::Test
       end
     }.new
 
-    gist = Gist.new(user_config) 
+    gist = GistDoIt::Gist.new(user_config: user_config) 
 
     assert_equal('liamseanbrady', gist.github_username)
   end
@@ -22,8 +22,7 @@ class GistTests < Minitest::Test
       end
     }.new
 
-    gist = Gist.new(user_config)
-    gist.summary = 'A good summary'
+    gist = GistDoIt::Gist.new(user_config: user_config, summary: 'A good summary')
 
     assert_equal('A good summary', gist.summary)
   end
@@ -36,8 +35,7 @@ class GistTests < Minitest::Test
       end
     }.new
 
-    gist = Gist.new(user_config)
-    gist.name = 'my_gist.rb'
+    gist = GistDoIt::Gist.new(user_config: user_config, name: 'my_gist.rb')
 
     assert_equal('my_gist.rb', gist.name)
   end
@@ -49,8 +47,7 @@ class GistTests < Minitest::Test
       end
     }.new
 
-    gist = Gist.new(user_config)
-    gist.content = 'def new_method; end'
+    gist = GistDoIt::Gist.new(user_config: user_config, content: 'def new_method; end')
 
     assert_equal('def new_method; end', gist.content)
   end
