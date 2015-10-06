@@ -16,6 +16,14 @@ module Github
       @response = @network.post_with_token(token, uri, @data)
     end
 
+    def has_github_username?
+      @config.has_github_username?
+    end
+
+    def github_username=(username)
+      @config.set_github_username(username)
+    end
+
     def response
       @response
     end
