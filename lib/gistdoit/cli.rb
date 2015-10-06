@@ -1,3 +1,5 @@
+require 'json'
+
 module GistDoIt
   class CLI
     def self.start(*args)
@@ -14,7 +16,16 @@ module GistDoIt
     def create_gist(base_file_name, file_contents, description)
       gist = Gist.new(name: base_file_name, content: file_contents, summary: description)
       client = Github::Client.new
-      client.create_gist(gist)
+      response = client.create_gist(gist)
+      parsed_response = JSON.parse(response)
+      client.github_username = parsed_response['owner']['login'] unless client.has_github_username?
+      show_url(parsed_response['html_url'])
+    end
+
+    def show_url(url)
+      in_blank_terminal do
+        puts "The link is: #{url}"
+      end
     end
 
     def get_file_contents(relative_file_path)
