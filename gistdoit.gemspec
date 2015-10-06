@@ -7,6 +7,9 @@ Gem::Specification.new do |s|
   s.authors = ["Liam Brady"]
   s.email = "liamseanbrady+gems@gmail.com"
   s.executables = %w[gistdoit]
-  s.files = %w[bin/gistdoit user_config.rb gist.rb gist_file.rb github.rb client.rb network.rb]
+  s.files = `git ls-files`.split("\n").reject { |file_name| file_name == 'sketch.md' }
+  s.test_files = `git ls-files -- test/*`.split("\n")
+  s.require_paths = %w[lib]
+  s.version = GistDoIt::VERSION
   s.homepage = "http://github.com/liamseanbrady/gistdoit"
 end
