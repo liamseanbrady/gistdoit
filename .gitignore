@@ -1,5 +1,5 @@
 config.yml
 TODO_before_committing
 *.gem
-sketch.md
+sketch*.md
 playground/*
