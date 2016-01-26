@@ -10,6 +10,7 @@ module GistDoIt
       base_file_name = File.basename(relative_file_path)
       file_contents = get_file_contents(relative_file_path)
       description = get_file_description
+      get_token
       create_gist(base_file_name, file_contents, description)
     end
 
@@ -50,14 +51,12 @@ module GistDoIt
     end
 
     def get_token
-      in_blank_terminal do
-        config_path = File.expand_path('~') + '/.gistdoit'
-        if !File.exist?(config_path)
-          in_blank_terminal do
-            puts "Please enter your token:"
-            token = $stdin.gets.chomp
-          end
-          result = File.open(config_path, 'w') do |file|
+      config_path = File.expand_path('~') + '/.gistdoit'
+      if !File.exist?(config_path)
+        in_blank_terminal do
+          puts "Please enter your token:"
+          token = $stdin.gets.chomp
+          File.open(config_path, 'w') do |file|
             config_data = { 'token' => token }
             file << YAML.dump(config_data)
           end
