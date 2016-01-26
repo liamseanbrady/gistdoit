@@ -20,34 +20,6 @@ To create a new gist, you simply type `gistdoit` along with the relative file pa
 gistdoit cool_project_file.rb
 ```
 
-
-If you want to edit a file that is currently on GitHub, then you can pass the `patch` flag
-
-```
-// PWD is /Users/AwesomeUser/Dev/Projects
-
-gistdoit patch cool_project_file.rb
-```
-
-If you like to update your gists remotely on GitHub, then we recommend that you first make sure that your local gist is up to date with the remote version
-
-```
-// PWD is /Users/AwesomeUser/Dev/Projects
-
-gistdoit pull cool_project_file.rb
-
-// Gistdoit needs permission to update the file
-Password: ********
-
-The file was successfully updated!
-```
-
-At the moment, Gistdoit only recognizes files which were added to gist.github via Gistdoit. 
-
-### Internals
-
-Gistdoit keeps a record of the full file paths for gists you've uploaded to GitHub via Gistdoit along with the slug for that file, and a SHA of the file itself. This allows Gistdoit to quickly check for changes in the file without having to parse it.
-
 ### Things I would like to add in the future
 
 - Allowing the user to select whether they would like a gist to be either secret or public.
