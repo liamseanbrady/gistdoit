@@ -2,6 +2,10 @@ This simple Ruby utility takes a file on your local machine and turns it into a 
 
 I could have used gems to simplify the development process, but I'm not sure how much code that would have actually saved me writing, and it would have undoubtedly added a layer of complexity in terms of understanding the codebase, so I decided to use only libraries which are built in to Ruby itself.
 
+### What I Learned
+
+I learned a massive amount from making mistakes whilst building this little app. Gistdoit's code is overly complex and contains a lot of unnecessary indirection. This came from a strong desire to pracice OO design (for better or for worse) and a lack of understanding of the costs of prematurely creating abstractions. It also taught me a lot about the benefit of "make it work, make it right, make it fast", [deliberate discovery](http://dannorth.net/2010/08/30/introducing-deliberate-discovery/) and why DRY and abstractions should not be forced (I loved [this](http://www.sandimetz.com/blog/2016/1/20/the-wrong-abstraction) Sandi Metz post on this topic), especially in the early stages of a project.
+
 ### Getting started
 
 `gem install gistdoit`
